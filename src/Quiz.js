@@ -7,17 +7,13 @@ let quizData = require('./quiz_data.json');
 class Quiz extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            quiz_position: 1,
-        }
+        this.state = { quiz_position: 1 }
     }
 
     showNextQuestion(){
-        var quiz_position = this.state.quiz_position + 1;
-        this.setState({
-            ...this.state,
-            quiz_position: quiz_position
-        });
+        this.setState((prevState) => ({
+            quiz_position: prevState.quiz_position + 1
+        }));
     }
 
     render() {
